@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mohitchauhan4u/Book-Store-MERN#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
   }
 }
