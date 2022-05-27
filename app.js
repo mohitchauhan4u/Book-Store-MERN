@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const router = require("./routes/book-routes");
 
 //middleware
 
-app.use("/", (req, res, next) => {
-  res.send("Connected");
-});
+app.use("/books", router);
 
 mongoose
   .connect(
