@@ -4,7 +4,7 @@ const app = express();
 const router = require("./routes/book-routes");
 
 //middleware
-
+app.use(express.json());
 app.use("/books", router);
 
 mongoose
