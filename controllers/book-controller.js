@@ -73,9 +73,9 @@ const deleteBook = async (req, res, next) => {
     console.log("ERROR", error);
   }
   if (!book) {
-    return res.status(404).json({ message: "Umable to delete by Id" });
+    return res.status(404).json({ message: "Unable to delete by Id" });
   }
-  return res.status(200).json({ book });
+  return res.status(200).json({ message: "Product Successfully Deleted" });
 };
 
 exports.getAllBook = getAllBook;
