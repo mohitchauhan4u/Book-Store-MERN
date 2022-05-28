@@ -64,7 +64,22 @@ const updateBook = async (req, res, next) => {
   return res.status(200).json({ book });
 };
 
+const deleteBook = async (req, res, next) => {
+  const id = req.params.id;
+  let book;
+  try {
+    book = await Book.findByIdAndRemove(id);
+  } catch (error) {
+    console.log("ERROR", error);
+  }
+  if (!book) {
+    return res.status(404).json({ message: "Umable to delete by Id" });
+  }
+  return res.status(200).json({ book });
+};
+
 exports.getAllBook = getAllBook;
 exports.addBook = addBook;
 exports.getById = getById;
 exports.updateBook = updateBook;
+exports.deleteBook = deleteBook;
