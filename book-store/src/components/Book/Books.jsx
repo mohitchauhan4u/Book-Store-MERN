@@ -19,7 +19,7 @@ const Books = () => {
         {books &&
           books.map((book, key) => (
             <div key={key}>
-              <Book />
+              <Book book={book} />
             </div>
           ))}
       </ul>
