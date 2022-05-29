@@ -5,7 +5,7 @@ const Book = (props) => {
   const { _id, name, author, description, price, image, available } =
     props.book;
   return (
-    <div>
+    <div className="card">
       <img src={image} alt={name} />
       <article>By {author}</article>
       <h3>{name}</h3>
