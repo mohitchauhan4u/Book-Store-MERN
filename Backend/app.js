@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
 const router = require("./routes/book-routes");
 
 //middleware
 app.use(express.json());
+app.use(cors());
 app.use("/books", router);
 
 mongoose
