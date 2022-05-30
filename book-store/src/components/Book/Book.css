@@ -29,3 +29,10 @@ li {
 .card article {
   padding: 5px;
 }
+
+.card h3 {
+  padding: 4px;
+}
+.card p {
+  padding: 3px;
+}
