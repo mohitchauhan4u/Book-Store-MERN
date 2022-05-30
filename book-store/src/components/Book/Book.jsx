@@ -2,8 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 
 const Book = (props) => {
-  const { _id, name, author, description, price, image, available } =
-    props.book;
+  const { name, author, description, price, image } = props.book;
   return (
     <div className="card">
       <img src={image} alt={name} />
