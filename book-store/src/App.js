@@ -1,29 +1,28 @@
 import React from "react";
-import { Route, Routes } from "react-router";
 import Header from "./components/Header";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import AddBook from "./components/AddBook";
-import About from "./components/About";
 import Books from "./components/Book/Books";
-import BookDetails from "./components/Book/BookDetails";
-
-const App = () => {
+import About from "./components/About";
+import BookDetail from "./components/Book/BookDetails";
+function App() {
   return (
-    <>
+    <React.Fragment>
       <header>
         <Header />
       </header>
       <main>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/add" element={<AddBook />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/books" element={<Books />} />
-          <Route exact path="/books/:id" element={<BookDetails />} />
+          <Route path="/" element={<Home />} exact />
+          <Route path="/add" element={<AddBook />} exact />
+          <Route path="/books" element={<Books />} exact />
+          <Route path="/about" element={<About />} exact />
+          <Route path="/books/:id" element={<BookDetail />} exact />
         </Routes>
       </main>
-    </>
+    </React.Fragment>
   );
-};
+}
 
 export default App;
