@@ -12,39 +12,41 @@ import { Box } from "@mui/system";
 
 const AddBook = () => {
   const history = useNavigate();
-  const [inputs, setInputs] = useState({
+  /**Not working code with useStste taking input
+   * const [inputs, setInputs] = useState({
     name: "",
     description: "",
     price: "",
     author: "",
     image: "",
   });
-  /**const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [author, setAuthor] = useState("");
-  const [image, setImage] = useState("");*/
-  const [checked, setChecked] = useState(false);
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
     console.log(inputs, checked);
-  };
+  };*/
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [author, setAuthor] = useState("");
+  const [image, setImage] = useState("");
+  const [checked, setChecked] = useState(false);
+
   const sendRequest = async () => {
     await axios.post("http://localhost:5000/books", {
-      name: String(inputs.name),
-      description: String(inputs.description),
-      image: String(inputs.image),
-      author: String(inputs.author),
-      price: Number(inputs.price),
+      name: String(name),
+      description: String(description),
+      image: String(image),
+      author: String(author),
+      price: Number(price),
       available: Boolean(checked),
     });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    console.log(name, author, description, price, image, checked);
     sendRequest().then(() => history("/books"));
   };
   return (
@@ -62,32 +64,32 @@ const AddBook = () => {
       >
         <FormLabel>Name</FormLabel>
         <TextField
-          value={inputs.name}
-          onChange={handleChange}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           margin="normal"
           fullWidth
           variant="outlined"
         ></TextField>
         <FormLabel>Author</FormLabel>
         <TextField
-          value={inputs.author}
-          onChange={handleChange}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
           margin="normal"
           fullWidth
           variant="outlined"
         ></TextField>
         <FormLabel>Description</FormLabel>
         <TextField
-          value={inputs.description}
-          onChange={handleChange}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           margin="normal"
           fullWidth
           variant="outlined"
         ></TextField>
         <FormLabel>Price</FormLabel>
         <TextField
-          value={inputs.price}
-          onChange={handleChange}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
           type={"number"}
           margin="normal"
           fullWidth
@@ -95,8 +97,8 @@ const AddBook = () => {
         ></TextField>
         <FormLabel>Image</FormLabel>
         <TextField
-          value={inputs.image}
-          onChange={handleChange}
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
           margin="normal"
           fullWidth
           variant="outlined"
